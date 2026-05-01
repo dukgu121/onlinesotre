@@ -24,7 +24,6 @@ export const metadata: Metadata = {
   description:
     "약사가 직접 큐레이션한 프리미엄 헬스케어. 더 신중하게, 더 부드럽게. 매일의 컨디션을 처방합니다.",
   applicationName: "Atelier Pharmacy",
-  themeColor: "#F7F4EE",
 };
 
 export const viewport: Viewport = {
