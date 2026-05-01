@@ -1,0 +1,170 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-pretendard: "Pretendard Variable", "Pretendard";
+  --bg: #f7f4ee;
+  --bg-canvas: #fbfaf6;
+  --ink: #1b1d1a;
+  --ink-soft: #4a4f49;
+  --hairline: rgba(27, 29, 26, 0.08);
+  --hairline-strong: rgba(27, 29, 26, 0.14);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-feature-settings: "ss01", "cv11", "cv01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-pretendard), var(--font-inter), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Subtle paper grain texture for premium feel */
+.paper-grain {
+  position: relative;
+}
+.paper-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.45;
+  background-image:
+    radial-gradient(rgba(27, 29, 26, 0.045) 1px, transparent 1.4px);
+  background-size: 3px 3px;
+  mix-blend-mode: multiply;
+}
+
+/* Hairline border helper */
+.hairline {
+  border-color: var(--hairline);
+}
+.hairline-b {
+  border-bottom: 1px solid var(--hairline);
+}
+.hairline-t {
+  border-top: 1px solid var(--hairline);
+}
+
+/* Premium scrollbars - hidden on touch */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Snap scroll for mobile carousels */
+.snap-row {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+.snap-item {
+  scroll-snap-align: start;
+}
+
+/* Editorial label */
+.eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #6e736c;
+  font-weight: 500;
+}
+
+/* Display serif used for English headlines */
+.display {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+/* Lift on tap (mobile press effect) */
+.tap {
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tap:active {
+  transform: scale(0.97);
+  opacity: 0.92;
+}
+
+/* Reveal on intersection (CSS only fallback) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Safe area for bottom nav */
+.safe-bottom {
+  padding-bottom: max(env(safe-area-inset-bottom), 0px);
+}
+.h-safe-bottom {
+  height: max(env(safe-area-inset-bottom), 0px);
+}
+
+/* Premium focus ring */
+:where(button, a, [role="button"]):focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(90, 107, 82, 0.22);
+  border-radius: 6px;
+}
+
+/* Number ticker monospace tabular */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hide native input number arrows */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Shimmer skeleton */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(27, 29, 26, 0.05) 0%,
+    rgba(27, 29, 26, 0.1) 40%,
+    rgba(27, 29, 26, 0.05) 80%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.4s linear infinite;
+}
+
+/* Section divider — apothecary line */
+.rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(27, 29, 26, 0.18),
+    transparent
+  );
+}
